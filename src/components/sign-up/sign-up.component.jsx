@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import './sign-up.styles.scss'
+import './sign-up.styles.scss';
 
 export class SignUp extends Component {
   constructor(props) {
@@ -37,19 +37,18 @@ export class SignUp extends Component {
         email: '',
         password: '',
         confirmPassword: '',
-      })
-
+      });
     } catch (error) {
       console.error(error);
     }
   };
-  
-  handleChange = event => {
-    const {name, value} = event.target;
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
@@ -63,7 +62,7 @@ export class SignUp extends Component {
             name='displayName'
             value={displayName}
             onChange={this.handleChange}
-            label='Display Name'
+            label='Name'
             required
           ></FormInput>
           <FormInput
@@ -71,7 +70,7 @@ export class SignUp extends Component {
             name='email'
             value={email}
             onChange={this.handleChange}
-            label='Display Email'
+            label='Email'
             required
           ></FormInput>
           <FormInput
